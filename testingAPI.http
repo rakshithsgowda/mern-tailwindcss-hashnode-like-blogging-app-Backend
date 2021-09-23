@@ -1,0 +1,6 @@
+
+### base url for users
+@host_1= http://localhost:8000/api/users
+
+### register user
+POST {{host_1}}/register HTTP/1.1
