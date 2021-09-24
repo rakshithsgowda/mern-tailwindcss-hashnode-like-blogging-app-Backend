@@ -15,17 +15,25 @@ dbConnect()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
+// CUSTOM middlewares
+const logger = (req, res, next) => {
+  console.log('Im a logger')
+  next()
+}
+
+app.use(logger)
+
 // Register
-app.post('api/users/register', userRegisterController)
+app.post('/api/users/register', userRegisterController)
 
 // Login
-app.post('api/users/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
   // bussiness logic
   res.json({ user: 'User Logged In' })
 })
 
 // fetch all users
-app.get('api/users', (req, res) => {
+app.get('/api/users', (req, res) => {
   // bussiness logic
   res.json({ user: 'User Registered' })
 })

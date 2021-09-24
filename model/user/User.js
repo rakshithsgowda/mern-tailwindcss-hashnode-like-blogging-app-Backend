@@ -1,18 +1,19 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 
 // create schema
 const userSchema = new mongoose.Schema(
   {
     firstName: {
       required: [true, 'Fist name is required'],
-      type: 'String',
+      type: String,
     },
     lastName: {
-      required: [true, 'Fist name is required'],
-      type: 'String',
+      required: [true, 'last name is required'],
+      type: String,
     },
     profilePhoto: {
-      type: 'String',
+      type: String,
       default:
         'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
     },
@@ -111,8 +112,15 @@ const userSchema = new mongoose.Schema(
   }
 )
 
-// compile schema into model
+// hash password
+userSchema.pre('save', async function (next) {
+  // hash password
+  const salt = await bcrypt.genSalt(10)
+  this.password = await bcrypt.hash(this.password, salt)
+  next()
+})
 
+// compile schema into model
 const User = mongoose.model('User', userSchema)
 
 module.exports = User
