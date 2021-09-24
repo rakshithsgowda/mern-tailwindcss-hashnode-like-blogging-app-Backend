@@ -7,9 +7,9 @@ POST {{host_1}}/register HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"indianindian",
-    "lastName":"nonindians",
-    "email":"indianindian@gmail.com",
+    "firstName":"indianinsdian",
+    "lastName":"nonindiasns",
+    "email":"indianinsdian@gmail.com",
     "password":"123456"
 }
 

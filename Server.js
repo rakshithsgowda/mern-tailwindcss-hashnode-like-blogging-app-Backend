@@ -4,9 +4,7 @@ const cors = require('cors')
 
 dotenv.config()
 const dbConnect = require('./config/db/dbConnect')
-const {
-  userRegisterController,
-} = require('./controllers/users/usersController')
+const userRoutes = require('./route/users/usersRoute')
 
 const app = express()
 
@@ -15,28 +13,9 @@ dbConnect()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
-// CUSTOM middlewares
-const logger = (req, res, next) => {
-  console.log('Im a logger')
-  next()
-}
 
-app.use(logger)
-
-// Register
-app.post('/api/users/register', userRegisterController)
-
-// Login
-app.post('/api/users/login', (req, res) => {
-  // bussiness logic
-  res.json({ user: 'User Logged In' })
-})
-
-// fetch all users
-app.get('/api/users', (req, res) => {
-  // bussiness logic
-  res.json({ user: 'User Registered' })
-})
+// Users routes
+app.use('/api/users', userRoutes)
 
 //  server
 const port = process.env.PORT || 8000
