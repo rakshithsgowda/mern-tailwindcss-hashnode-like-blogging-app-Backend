@@ -5,7 +5,7 @@ const cors = require('cors')
 dotenv.config()
 const dbConnect = require('./config/db/dbConnect')
 const userRoutes = require('./route/users/usersRoute')
-const { errorHandler } = require('./middlewares/error/errorHandler')
+const { errorHandler, notFound } = require('./middlewares/error/errorHandler')
 
 const app = express()
 
@@ -19,7 +19,8 @@ app.use(cors())
 app.use('/api/users', userRoutes)
 
 // error hanlder routes
-app.use(errorHandler)
+// app.use(notFound)
+app.use(notFound, errorHandler)
 
 //  server
 const port = process.env.PORT || 8000
