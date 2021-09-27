@@ -1,6 +1,7 @@
 const expressAsyncHandler = require('express-async-handler')
 const generateToken = require('../../config/token/generateToken')
 const User = require('../../model/user/User')
+const validateMongodbId = require('../../utils/validateMongodbID')
 
 // ------------------------------------------------------------------------------------------
 // Register
@@ -38,6 +39,7 @@ const loginUserController = expressAsyncHandler(async (req, res) => {
   // check if the passwords is a match
   if (userFound && (await userFound.isPasswordsMatch(password))) {
     res.json({
+      _id: userFound?._id,
       firstName: userFound?.firstName,
       lastName: userFound?.lastName,
       email: userFound?.email,
@@ -51,4 +53,37 @@ const loginUserController = expressAsyncHandler(async (req, res) => {
   }
 })
 
-module.exports = { userRegisterController, loginUserController }
+// -----------------------------------------------------------------------------------
+//  Users
+// -----------------------------------------------------------------------------------
+const fetchUsersController = expressAsyncHandler(async (req, res) => {
+  try {
+    const users = await User.find({})
+    res.json(users)
+  } catch (error) {
+    res.json(error)
+  }
+})
+
+// -----------------------------------------------------------------------------------
+// Delete user
+// -----------------------------------------------------------------------------------
+const deleteUserController = expressAsyncHandler(async (req, res) => {
+  const { id } = req.params
+  // if (!id) throw new Error(`Please provide the proper user ID`)
+  // res.send('delete user controller')
+  validateMongodbId(id)
+  try {
+    const deletedUser = await User.findByIdAndDelete(id)
+    res.json(deletedUser)
+  } catch (error) {
+    res.json(error)
+  }
+})
+
+module.exports = {
+  userRegisterController,
+  loginUserController,
+  fetchUsersController,
+  deleteUserController,
+}
