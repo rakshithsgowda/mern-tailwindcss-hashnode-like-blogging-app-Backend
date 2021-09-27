@@ -2,6 +2,7 @@
 ### base url for users
 @host_1= http://localhost:8000/api/users
 @id=61502aff116a8e11b9fa22e7
+@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTAxYmNiODhjNzJlMjYzZjIyMWM1ZiIsImlhdCI6MTYzMjcxNDU3MSwiZXhwIjoxNjM0NDQyNTcxfQ.faAMrd0QY4cHwBuANJRz1obcyc_kM9ML2wdUwKDVPpM
 
 ### register user
 POST {{host_1}}/register/ HTTP/1.1
@@ -38,4 +39,11 @@ Content-Type: application/json
 ### DELETE  user
 DELETE  {{host_1}}/{{id}} HTTP/1.1
 Content-Type: application/json
+
+
+
+### authorization check for user
+GET {{host_1}}/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{BearerToken}}
 
