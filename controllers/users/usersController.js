@@ -136,6 +136,26 @@ const updateUserController = expressAsyncHandler(async (req, res) => {
 })
 
 // -----------------------------------------------------------------------------------
+// update user password
+// -----------------------------------------------------------------------------------
+
+const updateUserPasswordController = expressAsyncHandler(async (req, res) => {
+  // destructure the logged in user
+  const { _id } = req.user
+  const { password } = req.body
+  validateMongodbId(_id)
+  // Find the user by _id
+  const user = await User.findById(_id)
+
+  if (password) {
+    user.password = password
+    const updatedUserPassword = await user.save()
+    res.json(updatedUserPassword)
+  }
+  res.json(user)
+})
+
+// -----------------------------------------------------------------------------------
 module.exports = {
   userRegisterController,
   loginUserController,
@@ -144,4 +164,5 @@ module.exports = {
   fetchUserDetailsController,
   userProfileController,
   updateUserController,
+  updateUserPasswordController,
 }

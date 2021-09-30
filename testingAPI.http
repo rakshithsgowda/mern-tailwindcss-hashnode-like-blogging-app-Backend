@@ -1,8 +1,8 @@
 
 ### base url for users
 @host_1= http://localhost:8000/api/users
-@id=61501bcb88c72e263f221c5f
-@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNTAxYmNiODhjNzJlMjYzZjIyMWM1ZiIsImlhdCI6MTYzMjcxODIxNSwiZXhwIjoxNjM0NDQ2MjE1fQ.rm-0pOKdBm7FIMHUf3iKCreE_C2IJ9Oou4gwmXQuUJY
+@id=614d70d9815cc69e5c091b74
+@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGQ3MGQ5ODE1Y2M2OWU1YzA5MWI3NCIsImlhdCI6MTYzMjk3OTk0NywiZXhwIjoxNjM0NzA3OTQ3fQ.6vnjGSRUwH0VhMewEe3aKWu-qo08EHqIixvc_4O9u44
 
 ### register user
 POST {{host_1}}/register/ HTTP/1.1
@@ -65,4 +65,12 @@ Authorization: Bearer {{BearerToken}}
 {
     "firstName":"india",
     "lastName":"Emelia"
+}
+### update user password 
+PUT {{host_1}}/password HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{BearerToken}}
+
+{
+    "password": "4561212sxsx33"
 }
