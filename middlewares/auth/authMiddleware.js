@@ -9,18 +9,18 @@ const authMiddleware = expressAsyncHandler(async (req, res, next) => {
     token = req.headers.authorization.split(' ')[1]
     try {
       if (token) {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const decoded = await jwt.verify(token, process.env.JWT_SECRET)
         // find the user by id
         const user = await User.findById(decoded?.id).select('-password')
         // attach the user to the request object
         req.user = user
         next()
+      } else {
+        throw new 'There is no token attached to the header'()
       }
     } catch (error) {
       throw new Error('Not authorized, token expired, login again')
     }
-  } else {
-    throw new Error('There is no token attached to the header')
   }
 })
 

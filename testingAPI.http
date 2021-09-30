@@ -54,3 +54,15 @@ Authorization: Bearer {{BearerToken}}
 GET {{host_1}}/profile/{{id}} HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{BearerToken}}
+
+
+
+### update user profile
+PUT {{host_1}}/{{id}} HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{BearerToken}}
+
+{
+    "firstName":"india",
+    "lastName":"Emelia"
+}

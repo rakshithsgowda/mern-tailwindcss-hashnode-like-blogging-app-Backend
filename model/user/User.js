@@ -103,10 +103,10 @@ const userSchema = new mongoose.Schema(
   },
   {
     toJSON: {
-      virtual: true,
+      virtuals: true,
     },
     toObject: {
-      virtual: true,
+      virtuals: true,
     },
     timestamps: true,
   }
@@ -120,7 +120,7 @@ userSchema.pre('save', async function (next) {
   next()
 })
 
-//match Password
+//match  or compare Password
 userSchema.methods.isPasswordsMatch = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password)
 }
