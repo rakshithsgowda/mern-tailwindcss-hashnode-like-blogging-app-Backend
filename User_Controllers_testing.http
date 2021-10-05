@@ -1,17 +1,17 @@
 
 ### base url for users
 @host_1= http://localhost:8000/api/users
-@id=614d70d9815cc69e5c091b74
-@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGQ3MGQ5ODE1Y2M2OWU1YzA5MWI3NCIsImlhdCI6MTYzMjk3OTk0NywiZXhwIjoxNjM0NzA3OTQ3fQ.6vnjGSRUwH0VhMewEe3aKWu-qo08EHqIixvc_4O9u44
+@id=615a8d8e58dffa35d3bcabe3
+@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNWE4ZDhlNThkZmZhMzVkM2JjYWJlMyIsImlhdCI6MTYzMzMyNDQ2NiwiZXhwIjoxNjM1MDUyNDY2fQ.df7RuaqfNYDhrFn-51z0jlDT_K0s1W5zirntLnI-6xk
 
 ### register user
 POST {{host_1}}/register/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"india",
-    "lastName":"india",
-    "email":"india@gmail.com",
+    "firstName":"vinay",
+    "lastName":"s",
+    "email":"vinay@gmail.com",
     "password":"india"
 }
 
@@ -20,8 +20,8 @@ POST {{host_1}}/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email":"indianinsdian@gmail.com",
-    "password":"123456"
+    "email":"vinay@gmail.com",
+    "password":"india"
 }
 
 
@@ -64,8 +64,8 @@ content-type: application/json
 Authorization: Bearer {{BearerToken}}
 
 {
-    "firstName":"india",
-    "lastName":"Emelia"
+    "firstName":"kannada",
+    "lastName":"reality"
 }
 ### update user password 
 PUT {{host_1}}/password HTTP/1.1
@@ -73,5 +73,12 @@ content-type: application/json
 Authorization: Bearer {{BearerToken}}
 
 {
-    "password": "4561212sxsx33"
+    "password": "123456789"
 }
+
+
+### follow by user
+PUT {{host_1}}/ HTTP/1.1
+Content-Type: application/json
+Authorization:Bearer {{BearerToken}}
+

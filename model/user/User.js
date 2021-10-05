@@ -89,10 +89,10 @@ const userSchema = new mongoose.Schema(
     passwordChangeAt: {
       type: Date,
     },
-    passwordRessetToken: {
+    passwordResetToken: {
       type: String,
     },
-    passwordRessetExpires: {
+    passwordResetExpires: {
       type: Date,
     },
 

@@ -12,7 +12,7 @@ const app = express()
 dbConnect()
 // Middleware
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
 // Users routes
