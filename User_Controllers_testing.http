@@ -1,18 +1,18 @@
 
 ### base url for users
 @host_1= http://localhost:8000/api/users
-@id=615a8d8e58dffa35d3bcabe3
-@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNWE4ZDhlNThkZmZhMzVkM2JjYWJlMyIsImlhdCI6MTYzMzMyNDQ2NiwiZXhwIjoxNjM1MDUyNDY2fQ.df7RuaqfNYDhrFn-51z0jlDT_K0s1W5zirntLnI-6xk
+@id=6163de3bf147dc759b1ca5e5
+@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjNkZTNiZjE0N2RjNzU5YjFjYTVlNSIsImlhdCI6MTYzNDI2ODQ4NCwiZXhwIjoxNjM1OTk2NDg0fQ.N1FIXNHxylBRDDuFJJdJ-5V2bLqBiqakLGl1PHJq-Zc
 
 ### register user
 POST {{host_1}}/register/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"vinay",
-    "lastName":"s",
-    "email":"vinay@gmail.com",
-    "password":"india"
+    "firstName":"student",
+    "lastName":"student",
+    "email":"student@gmail.com",
+    "password":"student"
 }
 
 ### Login user
@@ -20,8 +20,8 @@ POST {{host_1}}/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email":"vinay@gmail.com",
-    "password":"india"
+    "email":"student@gmail.com",
+    "password":"student"
 }
 
 
@@ -35,6 +35,11 @@ Authorization: Bearer {{BearerToken}}
 ### FETCH one user details by id
 GET {{host_1}}/{{id}} HTTP/1.1
 Content-Type: application/json
+Authorization: Bearer {{BearerToken}}
+
+{
+    "user.id":"6163d641de27cdeee4c5343a"
+}
 
 
 ### DELETE  user
@@ -64,8 +69,8 @@ content-type: application/json
 Authorization: Bearer {{BearerToken}}
 
 {
-    "firstName":"kannada",
-    "lastName":"reality"
+    "firstName":"alwaysMaster",
+    "lastName":"alwaysMaster"
 }
 ### update user password 
 PUT {{host_1}}/password HTTP/1.1
@@ -78,7 +83,20 @@ Authorization: Bearer {{BearerToken}}
 
 
 ### follow by user
-PUT {{host_1}}/ HTTP/1.1
+PUT {{host_1}}/follow HTTP/1.1
+Authorization: Bearer {{BearerToken}}
 Content-Type: application/json
-Authorization:Bearer {{BearerToken}}
 
+{
+    "followId":"6163d641de27cdeee4c5343a"
+}
+
+
+### unfollow  user 
+PUT {{host_1}}/unfollow HTTP/1.1
+Authorization: Bearer {{BearerToken}}
+Content-Type: application/json
+
+{
+    "unFollowId":"6163d641de27cdeee4c5343a"
+}
