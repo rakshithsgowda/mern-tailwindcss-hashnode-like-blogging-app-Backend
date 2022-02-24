@@ -8,7 +8,6 @@ const userRoutes = require('./route/users/usersRoute')
 const { errorHandler, notFound } = require('./middlewares/error/errorHandler')
 
 const app = express()
-
 dbConnect()
 
 // Middleware

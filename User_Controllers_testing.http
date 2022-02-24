@@ -2,7 +2,7 @@
 ### base url for users
 @host_1= http://localhost:8000/api/users
 @id=6163de3bf147dc759b1ca5e5
-@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjNkZTNiZjE0N2RjNzU5YjFjYTVlNSIsImlhdCI6MTYzNDI2ODQ4NCwiZXhwIjoxNjM1OTk2NDg0fQ.N1FIXNHxylBRDDuFJJdJ-5V2bLqBiqakLGl1PHJq-Zc
+@BearerToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjNkZTNiZjE0N2RjNzU5YjFjYTVlNSIsImlhdCI6MTY0NTcyMjk5NywiZXhwIjoxNjQ3NDUwOTk3fQ.ys2Z3WT8EpPTNFqmqIHyQaf2fKfttK4lSljUNgvOsYc
 
 ### register user
 POST {{host_1}}/register/ HTTP/1.1
