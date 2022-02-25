@@ -1,11 +1,10 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const cors = require('cors')
+import 'dotenv/config'
+import express from 'express'
+import cors from 'cors'
 
-dotenv.config()
-const dbConnect = require('./config/db/dbConnect')
-const userRoutes = require('./route/users/usersRoute')
-const { errorHandler, notFound } = require('./middlewares/error/errorHandler')
+import dbConnect from './config/db/dbConnect.js'
+import userRoutes from './route/users/usersRoute.js'
+import { errorHandler, notFound } from './middlewares/error/errorHandler.js'
 
 const app = express()
 dbConnect()

@@ -1,5 +1,5 @@
-const express = require('express')
-const {
+import express from 'express'
+import {
   userRegisterController,
   loginUserController,
   fetchUsersController,
@@ -12,9 +12,9 @@ const {
   UnfollowUserController,
   blockUserController,
   unBlockUserController,
-} = require('../../controllers/users/usersController')
+} from '../../controllers/users.Controllers/index.js'
 
-const authMiddleware = require('../../middlewares/auth/authMiddleware')
+import authMiddleware from '../../middlewares/auth/authMiddleware.js'
 
 const userRoutes = express.Router()
 
@@ -31,4 +31,4 @@ userRoutes.put('/password', authMiddleware, updateUserPasswordController)
 userRoutes.delete('/:id', authMiddleware, deleteUserController)
 userRoutes.get('/:id', authMiddleware, fetchUserDetailsController)
 
-module.exports = userRoutes
+export default userRoutes

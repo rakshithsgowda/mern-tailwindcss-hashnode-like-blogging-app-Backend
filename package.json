@@ -2,10 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "hashnode like blogs project backend",
-  "main": "server.js",
+  "main": "server.mjs",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "start": "node server.mjs",
+    "server": "nodemon server.mjs"
   },
   "author": "Rakshith S",
   "license": "ISC",
