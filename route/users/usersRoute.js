@@ -11,6 +11,7 @@ const {
   followingUserController,
   UnfollowUserController,
   blockUserController,
+  unBlockUserController,
 } = require('../../controllers/users/usersController')
 
 const authMiddleware = require('../../middlewares/auth/authMiddleware')
@@ -25,6 +26,7 @@ userRoutes.put('/:id', authMiddleware, updateUserController)
 userRoutes.put('/follow', authMiddleware, followingUserController)
 userRoutes.put('/unfollow', authMiddleware, UnfollowUserController)
 userRoutes.put('/block-user/:id', authMiddleware, blockUserController)
+userRoutes.put('/unblock-user/:id', authMiddleware, unBlockUserController)
 userRoutes.put('/password', authMiddleware, updateUserPasswordController)
 userRoutes.delete('/:id', authMiddleware, deleteUserController)
 userRoutes.get('/:id', authMiddleware, fetchUserDetailsController)
