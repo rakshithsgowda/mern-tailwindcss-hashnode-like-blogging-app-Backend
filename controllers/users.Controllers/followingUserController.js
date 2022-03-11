@@ -19,7 +19,7 @@ const followingUserController = expressAsyncHandler(async (req, res) => {
   // console.log(targetUser)
 
   const alreadyFollowing = targetUser?.follower?.find(
-    (user) => user?.toString() === loginUserId.toString()
+    (user) => user.toString() === loginUserId.toString()
   )
   if (alreadyFollowing) throw new Error('You have already followed this user')
   // console.log(alreadyFollowing)
